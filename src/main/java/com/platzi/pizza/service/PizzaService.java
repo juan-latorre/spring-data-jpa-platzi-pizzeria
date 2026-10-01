@@ -1,23 +1,32 @@
 package com.platzi.pizza.service;
 
 import com.platzi.pizza.persistence.entity.PizzaEntity;
+import com.platzi.pizza.persistence.repositoy.PizzaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
 @Service
 public class PizzaService {
-    private final JdbcTemplate jdbcTemplate;
+    private final PizzaRepository pizzaRepository;
 
     @Autowired
-    public PizzaService(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
+    public PizzaService(PizzaRepository pizzaRepository)
+    {
+        this.pizzaRepository = pizzaRepository;
     }
 
     public List<PizzaEntity> getAll(){
-      return this.jdbcTemplate.query("SELECT * FROM pizza", new BeanPropertyRowMapper<>(PizzaEntity.class));
+      return this.pizzaRepository.findAll();
+    }
+
+    public PizzaEntity get(int idPizza) {
+        return this.pizzaRepository.findById(idPizza).orElse(null);
     }
 }
