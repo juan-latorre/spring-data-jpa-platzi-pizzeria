@@ -29,4 +29,16 @@ public class PizzaService {
     public PizzaEntity get(int idPizza) {
         return this.pizzaRepository.findById(idPizza).orElse(null);
     }
+
+    public PizzaEntity save(PizzaEntity pizzaEntity) {
+       return this.pizzaRepository.save(pizzaEntity);
+    }
+
+    public void delete(int idPizza) {
+        this.pizzaRepository.deleteById(idPizza);
+    }
+
+    public boolean pizzaExists(int idPizza) {
+        return this.pizzaRepository.existsById(idPizza);
+    }
 }
