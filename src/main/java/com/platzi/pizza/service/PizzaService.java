@@ -3,12 +3,7 @@ package com.platzi.pizza.service;
 import com.platzi.pizza.persistence.entity.PizzaEntity;
 import com.platzi.pizza.persistence.repositoy.PizzaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -24,6 +19,14 @@ public class PizzaService {
 
     public List<PizzaEntity> getAll(){
       return this.pizzaRepository.findAll();
+    }
+
+    public List<PizzaEntity> getAvailable() {
+        return this.pizzaRepository.findAllByAvailableTrueOrderByPrice();
+    }
+
+    public PizzaEntity getByName(String name) {
+        return this.pizzaRepository.findAllByAvailableTrueAndNameIgnoreCase(name);
     }
 
     public PizzaEntity get(int idPizza) {
