@@ -1,4 +1,4 @@
-package com.platzi.pizza.persistence.repositoy;
+package com.platzi.pizza.persistence.repository;
 
 import com.platzi.pizza.persistence.entity.CustomerEntity;
 import org.springframework.data.jpa.repository.Query;

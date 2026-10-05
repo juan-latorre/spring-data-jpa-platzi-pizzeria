@@ -1,8 +1,8 @@
 package com.platzi.pizza.service;
 
 import com.platzi.pizza.persistence.entity.PizzaEntity;
-import com.platzi.pizza.persistence.repositoy.PizzaPagSortRepository;
-import com.platzi.pizza.persistence.repositoy.PizzaRepository;
+import com.platzi.pizza.persistence.repository.PizzaPagSortRepository;
+import com.platzi.pizza.persistence.repository.PizzaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

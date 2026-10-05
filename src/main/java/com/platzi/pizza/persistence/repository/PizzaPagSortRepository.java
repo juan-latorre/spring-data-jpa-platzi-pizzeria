@@ -1,4 +1,4 @@
-package com.platzi.pizza.persistence.repositoy;
+package com.platzi.pizza.persistence.repository;
 
 import com.platzi.pizza.persistence.entity.PizzaEntity;
 import org.springframework.data.domain.Page;
