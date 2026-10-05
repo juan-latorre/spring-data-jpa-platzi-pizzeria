@@ -1,4 +1,4 @@
-package com.platzi.pizza.persistence.entity;
+package com.platzi.pizza.persistence.audit;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
