@@ -19,11 +19,12 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/api/pizzas/**").hasAnyRole("ADMIN", "CUSTOMER")
                         .requestMatchers(HttpMethod.POST, "/api/pizzas/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.PUT).hasRole("ADMIN")
+                        .requestMatchers("/api/orders/random").hasAuthority("random_order")
                         .requestMatchers("/api/orders/**").hasRole("ADMIN")//una restriccion especial para PUT
                         .anyRequest()
                         .authenticated())
                         .httpBasic(Customizer.withDefaults());
-
+                        //El orden es importante en FilterChain (SecurityFilterChain)
                 return http.build();
     }
 
